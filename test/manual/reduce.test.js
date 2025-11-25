@@ -44,7 +44,7 @@ describe("reduce.js", () => {
 
   it("reduce array of objects by arithmetic operation", () => {
     const result = reduce([{price:500,discount:0.15,qty:2},{price:300,discount:0,qty:1}], (t,i)=>t+i.price*(1-i.discount)*i.qty, 0);
-    expect(result).toBe(1050);
+    expect(result).toBe(1150);
   });
 
 
