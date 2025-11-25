@@ -64,14 +64,11 @@ describe("reduce.js", () => {
   });
 
   it("reduce array of multiple object types", () => {
-    const result = reduce([1,'a',2], (sum,n)=>sum+n, 0);
-    expect(result).toBe(0);
+    const result = reduce([1,{product:{content:'milk'}},2], (sum,n)=>sum+n, 0);
+    expect(result).toBe('1[object Object]2');
   });
 
   it("reduce array with invalid iteratee", () => {
-    const result = reduce([1,2] , 0);
-    expect(result).toBe(TypeError);
+    expect(() => reduce([1,2] , 0)).toThrow(TypeError); 
   });
-
-
 });
