@@ -6,7 +6,11 @@
   "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage"
+    "coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
+    "test:manual": "node --experimental-vm-modules node_modules/jest/bin/jest.js test/manual",
+    "test:ai": "node --experimental-vm-modules node_modules/jest/bin/jest.js test/ai-generated",
+    "coverage:manual": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage test/manual",
+    "coverage:ai": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage test/ai-generated"
   },
   "author": "",
   "license": "MIT",
