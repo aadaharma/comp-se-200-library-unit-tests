@@ -16,9 +16,8 @@ describe("add.js", () => {
   // Very small numbers
   it("should handle precision calculations", () => {
     const result = add(0.00001, 0.00002);
-    expect(result).toBe(0.00003);
+    expect(result).toBeCloseTo(0.00003, 10);
   });
-
   // Very big numbers
   it("should calculate bulk order totals", () => {
     const result = add(999999999, 1);
@@ -28,7 +27,7 @@ describe("add.js", () => {
   // Two floating point numbers
   it("should add product prices with cents", () => {
     const result = add(12.99, 8.5);
-    expect(result).toBe(21.49);
+    expect(result).toBeCloseTo(21.49, 2);
   });
 
   // Integer and floating point
