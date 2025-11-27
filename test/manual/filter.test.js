@@ -166,4 +166,8 @@ describe("filter.js", () => {
       filter(123, (n) => n > 5);
     }).toThrow();
   });
+
+  it("should throw for null", () => {
+    expect(() => filter(null, (x) => x)).toThrow();
+  });
 });
