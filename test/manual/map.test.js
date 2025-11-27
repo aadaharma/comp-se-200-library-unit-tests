@@ -138,4 +138,8 @@ describe("map.js", () => {
   it("should throw error for invalid iteratee type", () => {
     expect(() => map([1, 2, 3], null)).toThrow();
   });
+
+  it("should throw for null", () => {
+    expect(() => map(null, (x) => x)).toThrow();
+  });
 });
