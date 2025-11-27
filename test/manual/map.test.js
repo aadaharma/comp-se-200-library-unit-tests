@@ -8,13 +8,16 @@ describe("map.js", () => {
   });
 
   it("should add 10% tax to prices", () => {
-    const result = map([45, 78, 34], (price) => price * 1.1);
+    const result = map(
+      [45, 78, 34],
+      (price) => Math.round(price * 1.1 * 10) / 10
+    );
     expect(result).toEqual([49.5, 85.8, 37.4]);
   });
 
   it("should convert numbers to currency strings", () => {
-    const result = map([1.5, 2.0, 3.99], (price) => "€" + price);
-    expect(result).toEqual(["€1.5", "€2.0", "€3.99"]);
+    const result = map([1.5, 2.0, 3.99], (price) => "€" + price.toFixed(2));
+    expect(result).toEqual(["€1.50", "€2.00", "€3.99"]);
   });
 
   // Single-element array
