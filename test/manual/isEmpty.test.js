@@ -147,4 +147,14 @@ describe("isEmpty.js", () => {
     const result = isEmpty(new Set());
     expect(result).toBe(true);
   });
+
+  it("should return true for Object.prototype", () => {
+    expect(isEmpty(Object.prototype)).toBe(true);
+  });
+
+  it("should return false for Object.prototype with own keys", () => {
+    Object.prototype.tmp = 1;
+    expect(isEmpty(Object.prototype)).toBe(false);
+    delete Object.prototype.tmp; // cleanup
+  });
 });
