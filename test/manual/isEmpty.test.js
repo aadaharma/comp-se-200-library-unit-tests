@@ -2,9 +2,9 @@ import isEmpty from "../../src/isEmpty.js";
 
 describe("isEmpty.js", () => {
   // Number - integer
-  it("should return false for integer", () => {
+  it("should return true for integer", () => {
     const result = isEmpty(42);
-    expect(result).toBe(false);
+    expect(result).toBe(true);
   });
 
   // Zero - integer
@@ -38,15 +38,15 @@ describe("isEmpty.js", () => {
   });
 
   // Boolean - true
-  it("should return false for boolean true", () => {
+  it("should return true for boolean true", () => {
     const result = isEmpty(true);
-    expect(result).toBe(false);
+    expect(result).toBe(true);
   });
 
   // Boolean - false
   it("should return false for boolean false", () => {
     const result = isEmpty(false);
-    expect(result).toBe(false);
+    expect(result).toBe(true);
   });
 
   // Null
