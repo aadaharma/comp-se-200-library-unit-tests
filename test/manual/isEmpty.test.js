@@ -83,9 +83,9 @@ describe("isEmpty.js", () => {
   });
 
   // Array with empty array
-  it("should return true for array with empty array", () => {
+  it("should return false for array with empty array", () => {
     const result = isEmpty([[]]);
-    expect(result).toBe(true);
+    expect(result).toBe(false);
   });
 
   // Objects array
@@ -101,9 +101,9 @@ describe("isEmpty.js", () => {
   });
 
   // Array with empty objects
-  it("should return true for array with empty objects", () => {
+  it("should return false for array with empty objects", () => {
     const result = isEmpty([{}, {}]);
-    expect(result).toBe(true);
+    expect(result).toBe(false);
   });
 
   // Object
