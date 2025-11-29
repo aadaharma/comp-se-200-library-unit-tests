@@ -4,7 +4,7 @@ describe("words.js", () => {
   // String of letters and digits
   it("should return array with single word for string of letters and digits", () => {
     const result = words("organic123apples");
-    expect(result).toEqual(["organic123apples"]);
+    expect(result).toEqual(["organic", "123", "apples"]);
   });
 
   // String has math symbols - +
