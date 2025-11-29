@@ -102,4 +102,10 @@ describe("words.js", () => {
     const result = words("$5.99 and $12.50", /\$\d+\.\d+/g);
     expect(result).toEqual(["$5.99", "$12.50"]);
   });
+
+  // With defined pattern - no match
+  it("should return empty array when pattern matches nothing", () => {
+    const result = words("organic vegan bread", /\d+/g);
+    expect(result).toEqual([]);
+  });
 });
