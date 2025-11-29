@@ -84,4 +84,8 @@ describe("clamp.js", () => {
   it("should throw error when upper is not a number", () => {
     expect(() => clamp(5, 1, "high")).toThrow();
   });
+
+  it("should throw for non-numeric string", () => {
+    expect(() => clamp("abc", 1, 10)).toThrow();
+  });
 });
