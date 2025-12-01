@@ -52,6 +52,11 @@ describe("eq.js", () => {
         expect(result).toBe(false);
     });
 
+    it("compare empty input with integer", () => {
+        const result = eq(1, );
+        expect(result).toBe(false);
+    });
+
     it("compare only one parameter", () => {
         const result = eq(8);
         expect(result).toBe(false);
@@ -65,5 +70,25 @@ describe("eq.js", () => {
         const result = eq([1,2,3], [1,2,3]);
         expect(result).toBe(false);
     });
-    
+    it("compare equivalent nulls", () => {
+        const result = eq(null, null);
+        expect(result).toBe(true);
+    });
+    it("compare null with integer", () => {
+        const result = eq(null, 1);
+        expect(result).toBe(false);
+    });
+
+    it("compare different types with same value: boolean and string", () => {
+        const result = eq(true, 'true');
+        expect(result).toBe(false);
+    });
+    it("compare equivalent booleans", () => {
+        const result = eq(true, true);
+        expect(result).toBe(true);
+    });
+    it("compare different booleans", () => {
+        const result = eq(true, false);
+        expect(result).toBe(false);
+    });
 });
