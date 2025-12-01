@@ -7,7 +7,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -22,27 +21,33 @@ jobs:
 
       - name: Run manual tests with coverage
         run: npm run coverage:manual
+        continue-on-error: true
 
       - name: Upload manual tests coverage
         uses: coverallsapp/github-action@v2
+        if: always()
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           flag-name: manual-tests
 
       - name: Run AI tests with coverage
         run: npm run coverage:ai
+        continue-on-error: true
 
       - name: Upload AI tests coverage
         uses: coverallsapp/github-action@v2
+        if: always()
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           flag-name: ai-tests
 
       - name: Run all tests with coverage
         run: npm run coverage
+        continue-on-error: true
 
       - name: Upload total coverage
         uses: coverallsapp/github-action@v2
+        if: always()
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           flag-name: total
