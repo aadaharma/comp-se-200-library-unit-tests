@@ -59,4 +59,6 @@ describe("get.js", () => {
         const result = get([1, 2, 3, 4, 5], '1');
         expect(result).toBe(2);
     });
+
+    
 });
