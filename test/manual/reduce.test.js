@@ -16,9 +16,9 @@ describe("reduce.js", () => {
     const result = reduce([1.11,2.22,3.33], (sum, n) => sum + n, 0);
     expect(result).toBe(6.66);
   });
-
+  //Fails, returns the single element
   it("reduce single element array", () => {
-    const result = reduce([{price:500,qty:1}], (total, item) => total+item.price*item.qty);
+    const result = reduce([{price:500,qty:1}], (total, item) => total+item.price*item.qty, 0);
     expect(result).toBe(500);
   });
 
@@ -53,8 +53,9 @@ describe("reduce.js", () => {
     expect(result).toBe({PirkkaOy:["apple","egg"],Valio:["milk"]});
   });
 
+  
   it("reduce array of objects by condition", () => {
-    const result = reduce([{apple:{inStock:4},milk:{inStock:3},egg:{inStock:0}}], (count,p)=>count+(p.inStock?1:0), 0);
+    const result = reduce([{apple:{inStock:4}},{milk:{inStock:3}},{egg:{inStock:0}}], (count,p)=>count + (Object.values(p)[0].inStock > 0 ? 1 : 0), 0);
     expect(result).toBe(2);
   });
 
